@@ -1,3 +1,5 @@
+// import { Fade } from "@mui/material";
+import Fade from "react-reveal/Fade";
 import React from "react";
 import styled from "styled-components";
 import "./Section.css";
@@ -11,16 +13,20 @@ export default function Section({
 }) {
   return (
     <Wrap image={image}>
-      <ItemText>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </ItemText>
+      <Fade bottom cascade>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </ItemText>
+      </Fade>
 
       <Buttons>
-        <ButtonGroup>
-          <LeftButton>{leftBtn}</LeftButton>
-          {rightBtn && <RightButton>{rightBtn}</RightButton>}
-        </ButtonGroup>
+        <Fade bottom cascade>
+          <ButtonGroup>
+            <LeftButton>{leftBtn}</LeftButton>
+            {rightBtn && <RightButton>{rightBtn}</RightButton>}
+          </ButtonGroup>
+        </Fade>
 
         <DownArrow src="./images/down-arrow.svg" />
       </Buttons>
