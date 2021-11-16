@@ -38,10 +38,7 @@ const Wrap = styled.div`
   background-size: cover;
   background-image: ${({ image }) => `url("/images/${image}")`};
   background-repeat: no-repeat;
-  /* background-position: 100% 30%; */
   background-position: center;
-  /* filter: brightness(120%); */
-  /* filter: contrast(80%); */
 `;
 const ItemText = styled.div`
   text-align: center;
@@ -80,6 +77,7 @@ const LeftButton = styled.div`
   cursor: pointer;
   color: #fff;
   opacity: 0.8;
+
   &:hover {
     opacity: 1;
   }
