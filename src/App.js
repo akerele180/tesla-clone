@@ -6,9 +6,9 @@ import Home from "./components/Home/Home";
 function App() {
   return (
     <div className="App">
+      <RightMenu />
       <Header />
       <Home />
-      <RightMenu />
     </div>
   );
 }

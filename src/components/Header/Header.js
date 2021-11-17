@@ -7,7 +7,7 @@ export default function Header() {
     <HeaderNavigation>
       <LogoContainer>
         <Link to="/">
-          <img src="/images/logo.svg" />
+          <img src="/images/logo.svg" alt="this is the logo" />
         </Link>
       </LogoContainer>
       <MiddleContainer>
@@ -54,12 +54,13 @@ const HeaderNavigation = styled.nav`
   top: 20px;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
   align-items: center;
   width: 94vw;
   margin: 0 auto;
   left: 0;
   right: 0;
-  @media screen and (max-width: 1013px) {
+  @media screen and (min-width: 1013px) {
     width: 90vw;
   }
 `;
@@ -129,4 +130,5 @@ const Hamburger = styled.div`
       text-decoration: none;
       font-weight: 600;
     }
+  }
 `;
