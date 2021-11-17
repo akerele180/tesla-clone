@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { RiCloseFill } from "react-icons/ri";
 
 export default function Header() {
+  const [close, setClose] = useState(false);
+
+  function toggleBar() {
+    setClose(true);
+  }
+  function unToggleBar() {
+    setClose(false);
+  }
+
   return (
     <HeaderNavigation>
       <LogoContainer>
@@ -43,9 +53,67 @@ export default function Header() {
       </EndContainer>
       <Hamburger>
         <li>
-          <Link to="/">Menu</Link>
+          <Link to="/" onClick={toggleBar}>
+            Menu
+          </Link>
         </li>
       </Hamburger>
+
+      <RightMenuBar show={close}>
+        <CloseWrapper>
+          <RiCloseFill
+            onClick={unToggleBar}
+            style={{
+              cursor: "pointer",
+            }}
+          />
+        </CloseWrapper>
+        <li>
+          <Link to="/">Model S</Link>
+        </li>
+        <li>
+          <Link to="/">Model 3</Link>
+        </li>
+        <li>
+          <Link to="/">Model X</Link>
+        </li>
+        <li>
+          <Link to="/">Model Y</Link>
+        </li>
+        <li>
+          <Link to="/">Solar Roof</Link>
+        </li>
+        <li>
+          <Link to="/">solar panels</Link>
+        </li>
+        <li>
+          <Link to="/">Existing inventory</Link>
+        </li>
+        <li>
+          <Link to="/">used inventory</Link>
+        </li>
+        <li>
+          <Link to="/">test drive</Link>
+        </li>
+        <li>
+          <Link to="/">powerwall</Link>
+        </li>
+        <li>
+          <Link to="/">commercial energy</Link>
+        </li>
+        <li>
+          <Link to="/">utilities</Link>
+        </li>
+        <li>
+          <Link to="/">charging</Link>
+        </li>
+        <li>
+          <Link to="/">find us</Link>
+        </li>
+        <li>
+          <Link to="/">support</Link>
+        </li>
+      </RightMenuBar>
     </HeaderNavigation>
   );
 }
@@ -60,7 +128,7 @@ const HeaderNavigation = styled.nav`
   margin: 0 auto;
   left: 0;
   right: 0;
-  @media screen and (min-width: 1013px) {
+  @media screen and (min-width: 1053px) {
     width: 90vw;
   }
 `;
@@ -107,15 +175,12 @@ const EndContainer = styled.ul`
       font-weight: 600;
     }
   }
-  /* li:last-of-type {
-    padding-right: 0px;
-  } */
-  @media screen and (max-width: 1013px) {
+  @media screen and (max-width: 1053px) {
     display: none;
   }
 `;
 const Hamburger = styled.div`
-  @media screen and (min-width: 1013px) {
+  @media screen and (min-width: 1053px) {
     display: none;
   }
   li {
@@ -131,4 +196,47 @@ const Hamburger = styled.div`
       font-weight: 600;
     }
   }
+`;
+
+const RightMenuBar = styled.ul`
+  background-color: #ffffff;
+  transform: ${({ show }) => (show ? "translateX(0)" : "translateX(100%)")};
+  transition: transform ease-in-out 0.5s;
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  padding: 20px 40px 20px 20px;
+
+  p {
+    padding: 20px;
+  }
+  li {
+    list-style-type: none;
+    padding: 10px 25px;
+    &:hover {
+      background-color: #171a202a;
+      cursor: pointer;
+      transition: all ease-in-out 0.4s;
+      border-radius: 8px;
+    }
+    a {
+      text-decoration: none;
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+  }
+  span {
+    display: inline-block;
+    padding: 20px;
+  }
+`;
+const CloseWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2rem;
+  margin-bottom: 15px;
 `;
