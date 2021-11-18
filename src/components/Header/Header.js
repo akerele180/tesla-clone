@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { RiCloseFill } from "react-icons/ri";
+import Slide from "react-reveal/Slide";
 
 export default function Header() {
   const [close, setClose] = useState(false);
@@ -60,59 +61,74 @@ export default function Header() {
       </Hamburger>
 
       <RightMenuBar show={close}>
-        <CloseWrapper>
-          <RiCloseFill
-            onClick={unToggleBar}
-            style={{
-              cursor: "pointer",
-            }}
-          />
-        </CloseWrapper>
-        <li>
-          <Link to="/">Model S</Link>
-        </li>
-        <li>
-          <Link to="/">Model 3</Link>
-        </li>
-        <li>
-          <Link to="/">Model X</Link>
-        </li>
-        <li>
-          <Link to="/">Model Y</Link>
-        </li>
-        <li>
-          <Link to="/">Solar Roof</Link>
-        </li>
-        <li>
-          <Link to="/">solar panels</Link>
-        </li>
-        <li>
-          <Link to="/">Existing inventory</Link>
-        </li>
-        <li>
-          <Link to="/">used inventory</Link>
-        </li>
-        <li>
-          <Link to="/">test drive</Link>
-        </li>
-        <li>
-          <Link to="/">powerwall</Link>
-        </li>
-        <li>
-          <Link to="/">commercial energy</Link>
-        </li>
-        <li>
-          <Link to="/">utilities</Link>
-        </li>
-        <li>
-          <Link to="/">charging</Link>
-        </li>
-        <li>
-          <Link to="/">find us</Link>
-        </li>
-        <li>
-          <Link to="/">support</Link>
-        </li>
+        <Slide right>
+          <CloseWrapper>
+            <RiCloseFill
+              onClick={unToggleBar}
+              style={{
+                cursor: "pointer",
+              }}
+            />
+            {/* </Slide> */}
+          </CloseWrapper>
+          {/* <Slide right> */}
+          <li>
+            <Link to="/">Model S</Link>
+          </li>
+          {/* </Slide> */}
+          {/* <Slide right> */}
+          <li>
+            <Link to="/">Model 3</Link>
+          </li>
+          {/* </Slide> */}
+          {/* <Slide right> */}
+          <li>
+            <Link to="/">Model X</Link>
+          </li>
+          {/* </Slide> */}
+          {/* <Slide right> */}
+          <li>
+            <Link to="/">Model Y</Link>
+          </li>
+          {/* </Slide> */}
+          {/* <Slide right> */}
+          <li>
+            <Link to="/">Solar Roof</Link>
+          </li>
+          {/* </Slide> */}
+          {/* <Slide right> */}
+          <li>
+            <Link to="/">solar panels</Link>
+          </li>
+          {/* </Slide> */}
+          <li>
+            <Link to="/">Existing inventory</Link>
+          </li>
+          <li>
+            <Link to="/">used inventory</Link>
+          </li>
+          <li>
+            <Link to="/">test drive</Link>
+          </li>
+          <li>
+            <Link to="/">powerwall</Link>
+          </li>
+          <li>
+            <Link to="/">commercial energy</Link>
+          </li>
+          <li>
+            <Link to="/">utilities</Link>
+          </li>
+          <li>
+            <Link to="/">charging</Link>
+          </li>
+          <li>
+            <Link to="/">find us</Link>
+          </li>
+          <li>
+            <Link to="/">support</Link>
+          </li>
+        </Slide>
       </RightMenuBar>
     </HeaderNavigation>
   );
@@ -199,9 +215,11 @@ const Hamburger = styled.div`
 `;
 
 const RightMenuBar = styled.ul`
+  overflow: scroll;
   background-color: #ffffff;
   transform: ${({ show }) => (show ? "translateX(0)" : "translateX(100%)")};
-  transition: transform ease-in-out 0.5s;
+  /* transition: transform ease-in-out 0.5s; */
+  /* animation: fade linear 0.5s; */
   width: 300px;
   height: 100vh;
   position: fixed;
